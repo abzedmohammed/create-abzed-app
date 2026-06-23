@@ -1,0 +1,31 @@
+{
+    "name": "create-abzed-app",
+    "version": "1.0.0",
+    "description": "Scaffold a new React + Vite project from the abzed-app template.",
+    "type": "module",
+    "bin": {
+        "create-abzed-app": "index.mjs"
+    },
+    "scripts": {
+        "sync": "node scripts/sync-template.mjs",
+        "prepack": "node scripts/sync-template.mjs"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "files": [
+        "index.mjs",
+        "README.md",
+        "template"
+    ],
+    "keywords": [
+        "react",
+        "vite",
+        "template",
+        "scaffold",
+        "abzed",
+        "abzed-utils"
+    ],
+    "author": "Abzed Mohammed",
+    "license": "MIT"
+}

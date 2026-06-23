@@ -1,0 +1,6 @@
+node_modules
+*.log
+.DS_Store
+
+# Generated at pack/publish time from ../abzed-app (see scripts/sync-template.mjs)
+template/
