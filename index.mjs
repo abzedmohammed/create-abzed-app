@@ -137,6 +137,12 @@ function replaceInFile(file, replacers) {
 }
 
 function scaffold(target, slug, title) {
+    // The published template carries `gitignore` (npm strips dot-gitignore files); restore it.
+    const shippedGitignore = path.join(target, 'gitignore');
+    if (fs.existsSync(shippedGitignore)) {
+        fs.renameSync(shippedGitignore, path.join(target, '.gitignore'));
+    }
+
     // package.json — rename, reset version, keep it private.
     const pkgPath = path.join(target, 'package.json');
     if (fs.existsSync(pkgPath)) {

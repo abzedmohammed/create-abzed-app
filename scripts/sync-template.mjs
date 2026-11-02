@@ -57,5 +57,12 @@ fs.cpSync(src, DEST, {
     filter: (from) => !IGNORE.has(path.basename(from)),
 });
 
+// npm strips `.gitignore` from published packages, so ship it as `gitignore`;
+// index.mjs renames it back when scaffolding.
+const dotGitignore = path.join(DEST, '.gitignore');
+if (fs.existsSync(dotGitignore)) {
+    fs.renameSync(dotGitignore, path.join(DEST, 'gitignore'));
+}
+
 const count = fs.readdirSync(DEST).length;
 console.log(`✓ Synced template from ${src} → template/ (${count} top-level entries)`);
